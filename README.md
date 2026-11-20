@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BQP SALAGARDEN
 
-## Getting Started
+Website giới thiệu sản phẩm pháo hoa Z121 chính hãng và dịch vụ tư vấn, trình diễn
+pháo hoa sự kiện của BQP SALAGARDEN. Ứng dụng dùng Next.js App Router, TypeScript,
+Tailwind CSS và Three.js.
 
-First, run the development server:
+## Phát triển
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Mở [http://localhost:3000](http://localhost:3000). Trang chi tiết sản phẩm có dạng
+`/san-pham/[slug]`; dữ liệu catalog nằm trong `data/salagardenData.ts`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Kiểm tra và triển khai
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run build
+npm start
+```
 
-## Learn More
+`npm run build` tạo bản Next.js standalone và sao chép `public/` cùng `.next/static/`
+vào `.next/standalone/`. `npm start` chạy máy chủ standalone đó; đặt biến môi trường
+`PORT` và `HOSTNAME` theo cấu hình máy chủ VPS khi cần.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Biểu mẫu báo giá hiện chỉ xác thực và hiển thị thông báo trên trình duyệt, chưa gửi
+dữ liệu đến máy chủ. Khách hàng được hướng dẫn gọi hotline để xác nhận yêu cầu.
