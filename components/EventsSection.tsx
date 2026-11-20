@@ -9,7 +9,7 @@ import { events } from "@/data/salagardenData";
 const eventGalleries: Record<number, string[]> = {
   0: ["/images/pdf-p10-2.png", "/images/pdf-p10-3.png", "/images/pdf-p10-4.png", "/images/pdf-p10-5.png"],
   1: ["/images/pdf-p9-17.png", "/images/pdf-p9-18.png", "/images/pdf-p9-19.png", "/images/pdf-p9-20.png"],
-  2: ["/images/pdf-p9-20.png", "/images/pdf-p9-21.png", "/images/pdf-p9-22.png", "/images/pdf-p9-23.png"],
+  2: ["/images/pdf-p9-24.png", "/images/pdf-p9-27.png", "/images/pdf-p9-31.png"],
   3: ["/images/pdf-p8-4.png", "/images/pdf-p8-5.png", "/images/pdf-p8-6.png", "/images/pdf-p8-7.png"],
   4: ["/images/pdf-p11-1.png", "/images/pdf-p9-1.png", "/images/pdf-p9-2.png", "/images/pdf-p9-3.png"],
 };
