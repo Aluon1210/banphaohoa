@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -39,7 +40,17 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   };
 }
 
-export default async function ProductPage({ params }: ProductPageProps) {
+function ProductPageFallback() {
+  return (
+    <main className="product-page">
+      <div className="page-wrap product-detail-loading" aria-live="polite">
+        Đang tải thông tin sản phẩm...
+      </div>
+    </main>
+  );
+}
+
+async function ProductContent({ params }: ProductPageProps) {
   const { slug } = await params;
   const product = products.find((item) => item.slug === slug);
   if (!product) notFound();
@@ -120,22 +131,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
               </p>
             </div>
 
-            {/* Bảng thông số kỹ thuật: Nhà sản xuất, Quy cách, Thời gian cháy, Tầm cao, Tính pháp lý */}
-            <div className="specifications-box">
-              <h3 className="specifications-heading">
-                <ShieldCheck aria-hidden="true" size={17} />
-                <span>Bảng Thông Số Kỹ Thuật Tiêu Chuẩn:</span>
-              </h3>
-              <dl className="specification-list">
-                {product.specifications.map((specification) => (
-                  <div key={specification.label}>
-                    <dt>{specification.label}</dt>
-                    <dd>{specification.value}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-
             {!isService && (
               <p className="product-safety-note">
                 <Flame size={14} />
@@ -154,6 +149,24 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 <Phone aria-hidden="true" size={15} /> Gọi hoặc nhắn Zalo: <strong>{company.phone}</strong>
               </a>
             </div>
+          </div>
+        </section>
+
+        {/* Bảng thông số kỹ thuật ở dưới khu mua hàng */}
+        <section className="product-specifications-section page-wrap" data-scroll-reveal="up">
+          <div className="specifications-box product-specifications-wide">
+            <h3 className="specifications-heading">
+              <ShieldCheck aria-hidden="true" size={17} />
+              <span>Bảng Thông Số Kỹ Thuật Tiêu Chuẩn:</span>
+            </h3>
+            <dl className="specification-list">
+              {product.specifications.map((specification) => (
+                <div key={specification.label}>
+                  <dt>{specification.label}</dt>
+                  <dd>{specification.value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </section>
 
@@ -199,5 +212,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
       <SiteFooter />
       <FloatingContact />
     </>
+  );
+}
+
+export default function ProductPage({ params }: ProductPageProps) {
+  return (
+    <Suspense fallback={<ProductPageFallback />}>
+      <ProductContent params={params} />
+    </Suspense>
   );
 }

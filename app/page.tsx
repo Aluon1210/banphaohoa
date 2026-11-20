@@ -253,23 +253,32 @@ export default function Home() {
         <div className="trust-strip">
           <div className="trust-strip-inner page-wrap">
             <div className="trust-item" data-scroll-reveal="up">
-              <ShieldCheck size={16} />
-              <span>Phân phối chính hãng Nhà máy Z121 – Bộ Quốc phòng</span>
+              <span className="trust-item-icon"><ShieldCheck size={20} /></span>
+              <span className="trust-item-copy">
+                <strong>Nhà máy Z121 – BQP</strong>
+                <small>Phân phối chính hãng</small>
+              </span>
             </div>
-            <span className="trust-divider" aria-hidden="true">·</span>
             <div className="trust-item" data-scroll-reveal="up">
-              <BadgeCheck size={16} />
-              <span>MST 0402356447 – Hợp pháp theo NĐ 137/2020/NĐ-CP</span>
+              <span className="trust-item-icon"><BadgeCheck size={20} /></span>
+              <span className="trust-item-copy">
+                <strong>MST 0402356447</strong>
+                <small>Hợp pháp theo NĐ 137/2020/NĐ-CP</small>
+              </span>
             </div>
-            <span className="trust-divider" aria-hidden="true">·</span>
             <div className="trust-item" data-scroll-reveal="up">
-              <PackageCheck size={16} />
-              <span>Kho 500 m² chuẩn PCCC · Giao hỏa tốc toàn quốc</span>
+              <span className="trust-item-icon"><PackageCheck size={20} /></span>
+              <span className="trust-item-copy">
+                <strong>Kho 500 m²</strong>
+                <small>Chuẩn PCCC · Giao toàn quốc</small>
+              </span>
             </div>
-            <span className="trust-divider" aria-hidden="true">·</span>
             <div className="trust-item" data-scroll-reveal="up">
-              <Star size={16} />
-              <span>5 sự kiện lớn tại Đại học Huế (2025–2026)</span>
+              <span className="trust-item-icon"><Star size={20} /></span>
+              <span className="trust-item-copy">
+                <strong>5 sự kiện tiêu biểu</strong>
+                <small>Đại học Huế · 2025–2026</small>
+              </span>
             </div>
           </div>
         </div>
@@ -413,19 +422,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Closing Band: Triết lý kinh doanh */}
-        <section className="closing-band">
-          <div className="page-wrap closing-content">
-            <div className="closing-quote" data-scroll-reveal="left">
-              <Sparkles className="closing-icon" size={24} />
-              <p>“{company.philosophy}”</p>
-            </div>
-            <a className="button button-gold closing-btn" data-scroll-reveal="right" href={`tel:${company.phoneLink}`}>
-              <Phone aria-hidden="true" size={17} />
-              <span>Hotline Tư Vấn: {company.phone}</span>
-            </a>
-          </div>
-        </section>
       </main>
 
       <SiteFooter />

@@ -69,6 +69,19 @@ export function QuoteForm() {
     const phone = (target.elements.namedItem("phone") as HTMLInputElement)?.value || "";
     const product = (target.elements.namedItem("product") as HTMLSelectElement)?.value || "";
     const note = (target.elements.namedItem("note") as HTMLTextAreaElement)?.value || "";
+
+    if (!product) {
+      setSubmitState("idle");
+      setSubmitMessage("");
+      const productSelect = target.elements.namedItem("product") as HTMLSelectElement | null;
+      productSelect?.setCustomValidity("Vui lòng chọn sản phẩm hoặc dịch vụ quan tâm.");
+      productSelect?.reportValidity();
+      productSelect?.focus();
+      return;
+    }
+
+    const productSelect = target.elements.namedItem("product") as HTMLSelectElement | null;
+    productSelect?.setCustomValidity("");
     setFormData({ name, phone, note });
     setSubmitState("sending");
     setSubmitMessage("");
@@ -188,10 +201,14 @@ export function QuoteForm() {
             </label>
 
             <label>
-              Sản phẩm hoặc dịch vụ quan tâm
+              Sản phẩm hoặc dịch vụ quan tâm <span aria-hidden="true">*</span>
               <select
                 name="product"
-                onChange={(event) => setSelectedProductOverride(event.target.value)}
+                onChange={(event) => {
+                  event.currentTarget.setCustomValidity("");
+                  setSelectedProductOverride(event.target.value);
+                }}
+                required
                 value={selectedProduct}
               >
                 <option value="">-- Chọn sản phẩm hoặc gói sự kiện --</option>

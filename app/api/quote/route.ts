@@ -23,9 +23,9 @@ export async function POST(request: Request) {
     const product = cleanText(body.product, 200);
     const note = cleanText(body.note, 1500);
 
-    if (!name || !phone) {
+    if (!name || !phone || !product) {
       return NextResponse.json(
-        { success: false, message: "Vui lòng nhập họ tên và số điện thoại." },
+        { success: false, message: "Vui lòng nhập họ tên, số điện thoại và chọn sản phẩm/dịch vụ." },
         { status: 400 }
       );
     }
@@ -52,12 +52,12 @@ export async function POST(request: Request) {
     });
 
     await transporter.sendMail({
-      from: `"Website BQP SALAGARDEN" <${SMTP_USER}>`,
+      from: `"Báo giá BQP Pháo hoa" <${SMTP_USER}>`,
       to: QUOTE_EMAIL_TO,
       replyTo: undefined,
-      subject: `[Báo giá website] ${name} - ${phone}`,
+      subject: `Báo giá BQP Pháo hoa - ${name} - ${phone}`,
       text: [
-        "YÊU CẦU BÁO GIÁ TỪ WEBSITE",
+        "YÊU CẦU BÁO GIÁ BQP PHÁO HOA",
         "",
         `Họ và tên: ${name}`,
         `Số điện thoại/Zalo: ${phone}`,
@@ -65,7 +65,7 @@ export async function POST(request: Request) {
         `Ghi chú: ${note || "Không có"}`,
       ].join("\n"),
       html: `
-        <h2>Yêu cầu báo giá từ website</h2>
+        <h2>Yêu cầu báo giá BQP Pháo hoa</h2>
         <p><strong>Họ và tên:</strong> ${escapeHtml(name)}</p>
         <p><strong>Số điện thoại/Zalo:</strong> ${escapeHtml(phone)}</p>
         <p><strong>Sản phẩm/dịch vụ:</strong> ${escapeHtml(product || "Chưa chọn")}</p>

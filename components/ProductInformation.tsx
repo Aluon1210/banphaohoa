@@ -127,29 +127,39 @@ export function ProductInformation({ item }: ProductInformationProps) {
                 </p>
               </div>
             </div>
-            <div className="legal-highlight-card">
-              <p>
-                <strong>{company.name}</strong> phân phối pháo hoa Nhà máy Z121 – GAET theo hồ sơ doanh nghiệp. Khi mua, vui lòng đối chiếu nhãn, tem và chứng từ của sản phẩm cụ thể tại điểm bán.
-              </p>
-              <div className="legal-meta-grid">
-                <div>
-                  <small>MÃ SỐ THUẾ / DOANH NGHIỆP</small>
-                  <strong>{company.taxCode}</strong>
+            <p className="detail-description">
+              Quý khách vui lòng đối chiếu mã số, cơ quan cấp phép, người đại diện và tổ chức thành viên khi mua hoặc hợp tác với doanh nghiệp.
+            </p>
+            <ol className="safety-steps legal-information-list">
+              <li>
+                <span className="step-badge"><BadgeCheck aria-hidden="true" size={18} /></span>
+                <div className="step-text">
+                  <small>Mã số thuế / Doanh nghiệp</small>
+                  <strong>{company.taxCode} — {company.name}</strong>
                 </div>
-                <div>
-                  <small>CƠ QUAN CẤP PHÉP</small>
+              </li>
+              <li>
+                <span className="step-badge"><FileCheck2 aria-hidden="true" size={18} /></span>
+                <div className="step-text">
+                  <small>Cơ quan cấp phép</small>
                   <strong>{company.registration}</strong>
                 </div>
-                <div>
-                  <small>NGƯỜI ĐẠI DIỆN PHÁP LUẬT</small>
+              </li>
+              <li>
+                <span className="step-badge">03</span>
+                <div className="step-text">
+                  <small>Người đại diện pháp luật</small>
                   <strong>{company.representative} – {company.role}</strong>
                 </div>
-                <div>
-                  <small>HỘI VIÊN CHÍNH THỨC</small>
+              </li>
+              <li>
+                <span className="step-badge">04</span>
+                <div className="step-text">
+                  <small>Tổ chức thành viên</small>
                   <strong>{company.roleAffiliation}</strong>
                 </div>
-              </div>
-            </div>
+              </li>
+            </ol>
 
             <div className="decree-note">
               <h4>Nghị định 137/2020/NĐ-CP</h4>
