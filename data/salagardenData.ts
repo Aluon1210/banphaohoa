@@ -10,7 +10,18 @@ export type CatalogItem = {
   specifications: { label: string; value: string }[];
   highlights: string[];
   legalNotes: string[];
+  price?: string;
 };
+
+export const retailPrices = [
+  { name: "Phun Viên", price: "390.000đ" },
+  { name: "Nhấp Nháy", price: "390.000đ" },
+  { name: "VIP 50", price: "900.000đ" },
+  { name: "VIP 75", price: "1.400.000đ" },
+  { name: "VIP 100", price: "1.800.000đ" },
+  { name: "100 Liền Khối", price: "4.200.000đ" },
+  { name: "Giàn 368", price: "42.000.000đ" },
+];
 
 export const company = {
   name: "CÔNG TY TNHH TỔ CHỨC SỰ KIỆN PHÁO HOA BQP SALAGARDEN",
@@ -42,6 +53,7 @@ export const products: CatalogItem[] = [
     image: "/images/pdf-p7-9.png",
     imageAlt: "Hộp quà pháo hoa Z121 màu đỏ 100 VIP từ hồ sơ năng lực SALAGARDEN",
     cardNote: "100 Ống Phóng · Hộp Quà Đỏ VIP",
+    price: "1.800.000đ",
     tags: ["100 Ống Phóng", "Hộp Quà Đỏ VIP"],
     specifications: [
       { label: "Nhà sản xuất", value: "Nhà máy Z121 – Bộ Quốc phòng (GAET)" },
@@ -72,6 +84,7 @@ export const products: CatalogItem[] = [
     image: "/images/pdf-p7-4.png",
     imageAlt: "Giàn phun viên VIP 75 ống phóng chính hãng Z121 trong hồ sơ sản phẩm",
     cardNote: "75 Ống Phóng · Vàng Kim & Đa Sắc",
+    price: "1.400.000đ",
     tags: ["75 Ống Phóng", "Vàng Kim & Đa Sắc"],
     specifications: [
       { label: "Nhà sản xuất", value: "Nhà máy Z121 – Bộ Quốc phòng (GAET)" },
@@ -102,6 +115,7 @@ export const products: CatalogItem[] = [
     image: "/images/pdf-p7-8.png",
     imageAlt: "Giàn phun viên VIP 50 ống phóng Z121 từ hồ sơ năng lực SALAGARDEN",
     cardNote: "50 Ống Phóng · Chùm Sáng Liên Tục",
+    price: "900.000đ",
     tags: ["50 Ống Phóng", "Bung Chùm Liên Tục"],
     specifications: [
       { label: "Nhà sản xuất", value: "Nhà máy Z121 – Bộ Quốc phòng (GAET)" },
@@ -131,6 +145,7 @@ export const products: CatalogItem[] = [
     image: "/images/pdf-p7-6.png",
     imageAlt: "Sản phẩm giàn phun viên nhấp nháy ZPYRO trong hồ sơ năng lực SALAGARDEN",
     cardNote: "ZPYRO · Hiệu Ứng Nhấp Nháy Ánh Sao",
+    price: "390.000đ",
     tags: ["ZPYRO", "Hiệu Ứng Nhấp Nháy"],
     specifications: [
       { label: "Nhà sản xuất", value: "Nhà máy Z121 – Bộ Quốc phòng (Dòng ZPYRO)" },
@@ -160,6 +175,7 @@ export const products: CatalogItem[] = [
     image: "/images/pdf-p7-5.png",
     imageAlt: "Sản phẩm giàn phun hoa ZPYRO Fountain trong ảnh hồ sơ năng lực SALAGARDEN",
     cardNote: "ZPYRO Fountain · Đài Hoa Sân Khấu",
+    price: "390.000đ",
     tags: ["Đài Phun Hoa", "Tia Sáng Bạc & Vàng"],
     specifications: [
       { label: "Nhà sản xuất", value: "Nhà máy Z121 – Bộ Quốc phòng (Dòng ZPYRO)" },
@@ -215,35 +231,35 @@ export const events = [
     title: "Ngày Hội Chào Đón Tân Sinh Viên 2026",
     venue: "Trường Đại học Nghệ thuật – Đại học Huế",
     highlight: "Màn trình diễn pháo hoa khép lại Ngày Hội Chào Đón Tân Sinh Viên 2026.",
-    image: "/images/pdf-p10-2.png",
+    image: "/media/info/arts-university-2026.jpg",
   },
   {
     date: "Không ghi trong PDF",
     title: "Sự Kiện Chào Đón Tân Sinh Viên Trường Đại Học Nông Lâm",
     venue: "Trường Đại học Nông Lâm – Đại học Huế",
     highlight: "Hiệu ứng chùm tia đa sắc hòa cùng âm nhạc sôi động, tiếp lửa nhiệt huyết tuổi trẻ.",
-    image: "/images/pdf-p9-17.png",
+    image: "/media/info/nonglam-event-1.jpg",
   },
   {
     date: "Không ghi trong PDF",
     title: "Sự Kiện Chào Đón Tân Sinh Viên Đại Học Khoa Học",
     venue: "Trường Đại học Khoa học – Đại học Huế",
     highlight: "Màn trình diễn pháo hoa rực rỡ chào mừng ngày hội tân sinh viên tại Đại học Khoa học.",
-    image: "/images/pdf-p9-24.png",
+    image: "/media/info/science-event-2026.jpg",
   },
   {
     date: "23/10/2025",
     title: "Ngày Hội Chào Đón Tân Sinh Viên K23",
     venue: "Trường Đại học Ngoại ngữ – Đại học Huế",
     highlight: "Khoảnh khắc khai màn rực rỡ với dòng pháo hoa ZPYRO ánh sao lung linh huyền ảo.",
-    image: "/images/pdf-p8-4.png",
+    image: "/media/info/foreign-language-certificate.jpg",
   },
   {
     date: "19/10/2025",
     title: "Chào Đón TSV K49 & Học Sinh Khối 10",
     venue: "Trường THPT Chuyên Khoa học Huế",
     highlight: "Món quà tinh thần ý nghĩa tiếp sức cho các thế hệ học sinh sinh viên xuất sắc bước vào năm học mới.",
-    image: "/images/pdf-p11-1.png",
+    image: "/media/info/nonglam-event-2025-2.jpg",
   },
 ];
 
@@ -254,6 +270,7 @@ export const stores = [
     address: "CM2-22 Lê Đức Anh, KĐT EcoGarden, TP. Huế",
     type: "Cửa hàng Ủy quyền Bộ Quốc phòng",
     mapLink: "https://maps.google.com/?q=EcoGarden+Hue",
+    image: "/media/hue/hue-1.jpg",
   },
   {
     number: "02",
@@ -261,6 +278,7 @@ export const stores = [
     address: "405 Lê Văn Hiến, P. Ngũ Hành Sơn, TP. Đà Nẵng",
     type: "Trụ sở chính & Cửa hàng Trưng bày",
     mapLink: "https://maps.google.com/?q=405+Le+Van+Hien+Da+Nang",
+    image: "/media/danang/danang-4.jpg",
   },
 ];
 

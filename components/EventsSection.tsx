@@ -7,16 +7,17 @@ import { events } from "@/data/salagardenData";
 
 // Extended gallery images per event (from PDF scan)
 const eventGalleries: Record<number, string[]> = {
-  0: ["/images/pdf-p10-2.png", "/images/pdf-p10-3.png", "/images/pdf-p10-4.png", "/images/pdf-p10-5.png"],
-  1: ["/images/pdf-p9-17.png", "/images/pdf-p9-18.png", "/images/pdf-p9-19.png", "/images/pdf-p9-20.png"],
-  2: ["/images/pdf-p9-24.png", "/images/pdf-p9-27.png", "/images/pdf-p9-31.png"],
-  3: ["/images/pdf-p8-4.png", "/images/pdf-p8-5.png", "/images/pdf-p8-6.png", "/images/pdf-p8-7.png"],
-  4: ["/images/pdf-p11-1.png", "/images/pdf-p9-1.png", "/images/pdf-p9-2.png", "/images/pdf-p9-3.png"],
+  0: ["/media/info/arts-university-2026.jpg", "/images/pdf-p10-2.png", "/images/pdf-p10-3.png", "/images/pdf-p10-4.png", "/images/pdf-p10-5.png"],
+  1: ["/media/info/nonglam-event-1.jpg", "/media/info/nonglam-event-2.jpg", "/media/info/nonglam-event-2025.jpg", "/media/info/nonglam-event-2025-2.jpg", "/images/pdf-p9-17.png"],
+  2: ["/media/info/science-event-2026.jpg", "/media/info/science-event-2025.jpg", "/images/pdf-p9-24.png", "/images/pdf-p9-27.png", "/images/pdf-p9-31.png"],
+  3: ["/media/info/foreign-language-certificate.jpg", "/images/pdf-p8-4.png", "/images/pdf-p8-5.png", "/images/pdf-p8-6.png", "/images/pdf-p8-7.png"],
+  4: ["/media/info/nonglam-event-2025-2.jpg", "/images/pdf-p11-1.png", "/images/pdf-p9-1.png", "/images/pdf-p9-2.png", "/images/pdf-p9-3.png"],
 };
 
 export function EventsSection() {
   const [selectedEventIndex, setSelectedEventIndex] = useState(0);
   const [galleryIndex, setGalleryIndex] = useState(0);
+  const [photoDirection, setPhotoDirection] = useState<"left" | "right" | "up">("up");
   const currentEvent = events[selectedEventIndex];
   const gallery = eventGalleries[selectedEventIndex] ?? [currentEvent.image];
   const currentImage = gallery[galleryIndex] ?? gallery[0];
@@ -24,14 +25,17 @@ export function EventsSection() {
   function selectEvent(idx: number) {
     setSelectedEventIndex(idx);
     setGalleryIndex(0);
+    setPhotoDirection("up");
   }
 
   function prevPhoto() {
     setGalleryIndex((i) => (i - 1 + gallery.length) % gallery.length);
+    setPhotoDirection("left");
   }
 
   function nextPhoto() {
     setGalleryIndex((i) => (i + 1) % gallery.length);
+    setPhotoDirection("right");
   }
 
   return (
@@ -40,7 +44,7 @@ export function EventsSection() {
         {/* Section heading */}
         <div className="events-top-row" data-scroll-reveal="up">
           <div>
-            <h2>Dấu Ấn Nghệ Thuật Ánh Sáng<br />Tại Các Sự Kiện Tiêu Biểu</h2>
+            <h2 className="section-title">Dấu Ấn Nghệ Thuật Ánh Sáng<br />Tại Các Sự Kiện Tiêu Biểu</h2>
           </div>
           <a className="button button-gold events-top-cta" href="#bao-gia">
             Tư Vấn Kịch Bản Sự Kiện <ArrowRight aria-hidden="true" size={17} />
@@ -88,7 +92,11 @@ export function EventsSection() {
             </ol>
 
             {/* Mini photo strip thumbnails */}
-            <div className="event-thumbs-row" aria-label="Ảnh minh họa sự kiện">
+            <div
+              className="event-thumbs-row"
+              key={`thumbs-${selectedEventIndex}`}
+              aria-label="Ảnh minh họa sự kiện"
+            >
               {gallery.map((src, i) => (
                 <button
                   key={src}
@@ -110,8 +118,11 @@ export function EventsSection() {
           </div>
 
           {/* Right column: Active Event Showcase Photo with gallery nav */}
-          <div className="event-photo-showcase" data-scroll-reveal="right">
-            <figure className="event-photo">
+          <div className="event-photo-showcase" data-scroll-reveal="right" data-reveal-sequence="image">
+            <figure
+              className={`event-photo event-photo-enter event-photo-from-${photoDirection}`}
+              key={`${selectedEventIndex}-${galleryIndex}`}
+            >
               <Image
                 alt={currentEvent.title}
                 className="event-photo-image"

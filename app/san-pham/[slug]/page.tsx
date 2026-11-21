@@ -82,7 +82,7 @@ async function ProductContent({ params }: ProductPageProps) {
         {/* KHỐI THÔNG TIN CHÍNH (GRID 2 CỘT 5/7) */}
         <section className="product-detail page-wrap">
           {/* Cột trái: Khung trưng bày aspect-square nền #970019 viền #D9B45B + Badge + 3 Ô cam kết */}
-          <div className="product-display" data-scroll-reveal="left">
+          <div className="product-display" data-scroll-reveal="clip-left">
             <div className="product-display-image">
               <Image
                 alt={product.imageAlt}
@@ -107,7 +107,7 @@ async function ProductContent({ params }: ProductPageProps) {
           </div>
 
           {/* Cột phải: Tên sản phẩm H1 màu #970019, thông số kỹ thuật, bộ chọn số lượng, 2 nút CTA */}
-          <div className="product-summary" data-scroll-reveal="right">
+          <div className="product-summary" data-scroll-reveal="diagonal-right">
             <h1 className="product-title">{product.name}</h1>
             <p className="product-summary-copy">{product.description}</p>
 
@@ -127,7 +127,9 @@ async function ProductContent({ params }: ProductPageProps) {
                 {isService ? "BÁO GIÁ TRỌN GÓI THEO QUY MÔ SỰ KIỆN" : "GIÁ PHÂN PHỐI CHÍNH HÃNG BQP"}
               </span>
               <p className="price-value">
-                {isService ? "Khảo sát thực địa & Báo giá tối ưu" : "Liên Hệ Báo Giá Chiết Khấu Ưu Đãi"}
+                {isService
+                  ? "Khảo sát thực địa & Báo giá tối ưu"
+                  : product.price || "Liên Hệ Báo Giá Chiết Khấu Ưu Đãi"}
               </p>
             </div>
 

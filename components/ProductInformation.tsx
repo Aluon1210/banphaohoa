@@ -64,7 +64,7 @@ export function ProductInformation({ item }: ProductInformationProps) {
             <div className="detail-heading-row">
               <Sparkles aria-hidden="true" className="detail-icon" size={24} />
               <div>
-                <h2>{isService ? "Phương Án Trình Diễn Nghệ Thuật Đẳng Cấp" : `Đặc Điểm & Hiệu Ứng Của ${item.name}`}</h2>
+                <h2 className="section-title detail-section-title">{isService ? "Phương Án Trình Diễn Nghệ Thuật Đẳng Cấp" : `Đặc Điểm & Hiệu Ứng Của ${item.name}`}</h2>
                 <p className="detail-subhead">
                   {isService
                     ? "Giải pháp chiếu sáng nghệ thuật tối ưu theo ngân sách và không gian thực địa"
@@ -90,7 +90,7 @@ export function ProductInformation({ item }: ProductInformationProps) {
             <div className="detail-heading-row">
               <ShieldCheck aria-hidden="true" className="detail-icon" size={24} />
               <div>
-                <h2>{isService ? "Các Bước Chuẩn Bị & Phối Hợp An Toàn" : "Bốn Bước Kiểm Tra An Toàn Trước Khi Sử Dụng"}</h2>
+                <h2 className="section-title detail-section-title">{isService ? "Các Bước Chuẩn Bị & Phối Hợp An Toàn" : "Bốn Bước Kiểm Tra An Toàn Trước Khi Sử Dụng"}</h2>
                 <p className="detail-subhead">
                   Luôn đọc nhãn sản phẩm và tuân thủ các quy định hiện hành
                 </p>
@@ -121,7 +121,7 @@ export function ProductInformation({ item }: ProductInformationProps) {
             <div className="detail-heading-row">
               <BadgeCheck aria-hidden="true" className="detail-icon" size={24} />
               <div>
-                <h2>Tính Pháp Lý & Nguồn Gốc Z121</h2>
+                <h2 className="section-title detail-section-title">Tính Pháp Lý & Nguồn Gốc Z121</h2>
                 <p className="detail-subhead">
                   Thông tin doanh nghiệp và hướng dẫn kiểm tra tại điểm bán
                 </p>

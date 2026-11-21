@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Flame } from "lucide-react";
-import { products, type CatalogItem } from "@/data/salagardenData";
+import { products, retailPrices, type CatalogItem } from "@/data/salagardenData";
 import { QuoteButton } from "./QuoteButton";
 
 const categories = [
@@ -26,7 +26,7 @@ export function ProductSection() {
       <div className="page-wrap">
         <div className="section-heading catalog-heading" data-scroll-reveal="up">
           <div>
-            <h2>Sản Phẩm Z121 Chính Hãng &<br />Dịch Vụ Trình Diễn Nghệ Thuật</h2>
+            <h2 className="section-title">Sản Phẩm Z121 Chính Hãng &<br />Dịch Vụ Trình Diễn Nghệ Thuật</h2>
           </div>
           <p>
             Danh mục gồm pháo hoa dân dụng từ Nhà máy Z121 – GAET và dịch vụ tư vấn, thiết kế trình diễn sự kiện. Vui lòng đối chiếu nhãn và chứng từ tại điểm bán.
@@ -49,12 +49,26 @@ export function ProductSection() {
           </div>
         </div>
 
+        <div className="retail-price-panel" aria-label="Bảng giá lẻ">
+          <div className="retail-price-heading">
+            <span>Bảng Giá Lẻ</span>
+            <strong>Giá bán tại cửa hàng</strong>
+          </div>
+          <div className="retail-price-grid">
+            {retailPrices.map((item) => (
+              <div className="retail-price-item" key={item.name}>
+                <span>{item.name}</span>
+                <strong>{item.price}</strong>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Product Grid */}
-        <div className="product-grid">
+        <div className="product-grid" key={activeCategory}>
           {filteredProducts.map((product: CatalogItem, index: number) => (
             <article
-              className="product-card"
-              data-scroll-reveal="up"
+              className="product-card is-category-enter"
               key={product.slug}
             >
               <Link
@@ -85,6 +99,13 @@ export function ProductSection() {
                 <h3>
                   <Link href={`/san-pham/${product.slug}`}>{product.name}</Link>
                 </h3>
+
+                {product.price && (
+                  <div className="product-card-price">
+                    <span>Giá lẻ</span>
+                    <strong>{product.price}</strong>
+                  </div>
+                )}
 
                 <p className="product-note">
                   <Flame aria-hidden="true" size={14} />

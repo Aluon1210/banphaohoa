@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import "bootstrap/dist/css/bootstrap-grid.min.css";
+import "bootstrap/dist/css/bootstrap-utilities.min.css";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,6 +17,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="vi">
       <body>
+        <ScrollReveal />
         {children}
       </body>
     </html>
