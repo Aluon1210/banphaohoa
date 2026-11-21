@@ -4284,7 +4284,7 @@ html[data-reveal-ready="true"] .media-proof-section [data-scroll-reveal].is-reve
 
 .media-proof-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
   align-items: stretch;
   margin-bottom: 20px;
@@ -4313,27 +4313,28 @@ html[data-reveal-ready="true"] .media-proof-section [data-scroll-reveal].is-reve
 }
 
 .media-video {
-  display: block;
-  background: #120A0B;
+  display: grid;
+  height: auto;
+  grid-template-rows: auto auto;
+  background: var(--cream-card);
 }
 
 .media-video video {
+  display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
   min-height: 0;
   object-fit: cover;
   background: #120A0B;
 }
 
-.media-certificate figcaption,
-.media-video figcaption {
+.media-certificate figcaption {
   position: absolute;
   z-index: 2;
   right: 14px;
   bottom: 14px;
   left: 14px;
-  display: grid;
-  gap: 2px;
   padding: 12px 14px;
   border: 1px solid rgba(217, 180, 91, 0.55);
   border-radius: 10px;
@@ -4342,34 +4343,38 @@ html[data-reveal-ready="true"] .media-proof-section [data-scroll-reveal].is-reve
   backdrop-filter: blur(8px);
 }
 
-.media-video figcaption {
-  position: absolute;
-  z-index: 2;
-  right: 14px;
-  bottom: 14px;
-  left: 14px;
+.media-video-caption {
   display: grid;
-  gap: 2px;
+  justify-items: center;
+  gap: 3px;
   margin: 0;
-  padding: 12px 14px;
-  border: 1px solid rgba(217, 180, 91, 0.55);
-  border-radius: 10px;
-  background: rgba(78, 0, 13, 0.88);
-  color: var(--cream);
-  backdrop-filter: blur(8px);
-  background: #4E000D;
-  backdrop-filter: none;
+  padding: 14px 16px 16px;
+  border-top: 1px solid var(--gold-line);
+  background: var(--cream-card);
+  text-align: center;
 }
 
-.media-certificate figcaption strong,
-.media-video figcaption strong {
+.media-video-caption strong {
+  color: var(--crimson);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.media-video-caption span {
+  color: var(--muted-ink);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.media-certificate figcaption strong {
   color: var(--gold-light);
   font-size: 14px;
+  line-height: 1.4;
 }
 
-.media-certificate figcaption span,
-.media-video figcaption span {
+.media-certificate figcaption span {
   font-size: 12px;
+  line-height: 1.45;
 }
 
 .warehouse-grid {
@@ -4503,14 +4508,6 @@ html[data-reveal-ready="true"] .media-proof-section [data-scroll-reveal].is-reve
 
   .media-certificate {
     min-height: 300px;
-  }
-
-  .media-video {
-    grid-template-rows: 260px auto;
-  }
-
-  .media-video video {
-    min-height: 260px;
   }
 
   .warehouse-grid {

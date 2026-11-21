@@ -410,22 +410,29 @@ export default function Home() {
             </div>
 
             <div className="media-proof-grid">
-              <figure className="media-certificate">
-                <Image
-                  alt="Chứng nhận cửa hàng pháo hoa số 3 tại TP. Huế"
-                  fill
-                  sizes="(max-width: 760px) 100vw, 42vw"
-                  src="/media/info/hue-store-certificate.jpg"
-                />
-                <figcaption>
-                  <strong>Cửa hàng Pháo hoa Số 3 – Huế</strong>
-                  <span>Chứng nhận tổ chức và đồng hành tại ngày hội sinh viên 2025</span>
+              <figure className="media-video">
+                <video
+                  aria-label="Video quay cảnh bốc hàng tại kho"
+                  controls
+                  width={1280}
+                  height={720}
+                  playsInline
+                  preload="metadata"
+                >
+                  <source src="/media/video/warehouse-loading.mp4" type="video/mp4" />
+                  Trình duyệt của quý khách không hỗ trợ phát video.
+                </video>
+                <figcaption className="media-video-caption">
+                  <strong>Cảnh bốc xếp hàng tại kho</strong>
+                  <span>Hình ảnh thực tế tại kho hàng</span>
                 </figcaption>
               </figure>
 
               <figure className="media-video">
                 <video
                   controls
+                  width={1280}
+                  height={720}
                   playsInline
                   poster="/media/video/show-cover.jpg"
                   preload="metadata"
@@ -433,8 +440,8 @@ export default function Home() {
                   <source src="/media/video/showreel.mp4" type="video/mp4" />
                   Trình duyệt của quý khách không hỗ trợ phát video.
                 </video>
-                <figcaption>
-                  <strong>Màn trình diễn thực tế</strong>
+                <figcaption className="media-video-caption">
+                  <strong>Màn trình diễn pháo hoa thực tế</strong>
                   <span>Khoảnh khắc nghệ thuật tại sự kiện</span>
                 </figcaption>
               </figure>
