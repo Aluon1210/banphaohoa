@@ -1,0 +1,7 @@
+services:
+  banphaohoa:
+    build: .
+    container_name: banphaohoa-web
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:4178:3000"
