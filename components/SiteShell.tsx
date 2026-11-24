@@ -15,11 +15,11 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="site-header-inner page-wrap">
-        <Link aria-label="BQP SALAGARDEN — Trang chủ" className="brand-lockup" href="/">
+        <Link aria-label="Cửa hàng Pháo hoa Z121 — Trang chủ" className="brand-lockup" href="/">
           <span aria-hidden="true" className="brand-mark">S</span>
           <span className="brand-name">
-            <strong>BQP SALAGARDEN</strong>
-            <small>PHÁO HOA BỘ QUỐC PHÒNG (Z121)</small>
+            <strong>CỬA HÀNG PHÁO HOA Z121</strong>
+            <small>HUẾ · ĐÀ NẴNG</small>
           </span>
         </Link>
 
@@ -70,11 +70,11 @@ export function SiteFooter() {
       <div className="page-wrap footer-main">
         {/* Column 1: Brand & Philosophy */}
         <div className="footer-col-brand" data-scroll-reveal="up">
-          <Link aria-label="BQP SALAGARDEN — Trang chủ" className="brand-lockup" href="/">
+          <Link aria-label="Cửa hàng Pháo hoa Z121 — Trang chủ" className="brand-lockup" href="/">
             <span aria-hidden="true" className="brand-mark">S</span>
             <span className="brand-name">
-              <strong>BQP SALAGARDEN</strong>
-              <small>PHÁO HOA & TỔ CHỨC SỰ KIỆN</small>
+              <strong>CỬA HÀNG PHÁO HOA Z121</strong>
+              <small>HUẾ · ĐÀ NẴNG</small>
             </span>
           </Link>
           <p className="footer-legal-name">{company.name}</p>

@@ -25,7 +25,7 @@ export const retailPrices = [
 
 export const company = {
   name: "CÔNG TY TNHH TỔ CHỨC SỰ KIỆN PHÁO HOA BQP SALAGARDEN",
-  shortName: "BQP SALAGARDEN",
+  shortName: "CỬA HÀNG PHÁO HOA Z121",
   phone: "0395 952 325",
   phoneLink: "0395952325",
   zaloLink: "https://zalo.me/0395952325",
@@ -266,17 +266,17 @@ export const events = [
 export const stores = [
   {
     number: "01",
-    name: "Cơ sở 1 – Cửa hàng Pháo hoa Số 3 (GAET)",
+    name: "Cửa hàng Pháo hoa Số 3",
     address: "CM2-22 Lê Đức Anh, KĐT EcoGarden, TP. Huế",
-    type: "Cửa hàng Ủy quyền Bộ Quốc phòng",
+    type: "Cửa hàng Pháo hoa tại TP. Huế",
     mapLink: "https://maps.google.com/?q=EcoGarden+Hue",
     image: "/media/hue/hue-1.jpg",
   },
   {
     number: "02",
-    name: "Cơ sở 2 – Cửa hàng Pháo hoa Số 50",
+    name: "Cửa hàng Pháo hoa Số 50",
     address: "405 Lê Văn Hiến, P. Ngũ Hành Sơn, TP. Đà Nẵng",
-    type: "Trụ sở chính & Cửa hàng Trưng bày",
+    type: "Cửa hàng Pháo hoa tại TP. Đà Nẵng",
     mapLink: "https://maps.google.com/?q=405+Le+Van+Hien+Da+Nang",
     image: "/media/danang/danang-4.jpg",
   },

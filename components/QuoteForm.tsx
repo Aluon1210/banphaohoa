@@ -129,7 +129,7 @@ export function QuoteForm() {
               ? submitMessage
               : submitState === "error"
                 ? submitMessage
-                : `Thông tin của ${formData.name} chỉ đang hiển thị trên trang này. Website chưa gửi dữ liệu đến BQP SALAGARDEN.`}
+                : `Thông tin của ${formData.name} chỉ đang hiển thị trên trang này. Website chưa gửi dữ liệu đến cửa hàng.`}
           </p>
           {currentProductObj && (
             <div className="quote-response-product">
@@ -172,7 +172,7 @@ export function QuoteForm() {
           <div className="quote-heading">
             <h3>Trao Đổi Nhu Cầu & Báo Giá</h3>
             <p>
-              Điền thông tin để gửi yêu cầu báo giá trực tiếp đến BQP SALAGARDEN.
+              Điền thông tin để gửi yêu cầu báo giá trực tiếp đến cửa hàng pháo hoa.
             </p>
           </div>
           <form className="quote-form" id="quote-form-element" onSubmit={handleSubmit}>

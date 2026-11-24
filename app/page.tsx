@@ -49,8 +49,8 @@ export default function Home() {
           <div className="page-wrap hero-layout px-3 px-md-0">
             <div className="hero-copy">
               <h1 className="hero-enter hero-enter-left">
-                <span>CÔNG TY TNHH TỔ CHỨC SỰ KIỆN PHÁO HOA</span>
-                <em className="hero-brand-name">BQP SALAGARDEN</em>
+                <span>CỬA HÀNG PHÁO HOA SỐ 50 — TP. ĐÀ NẴNG</span>
+                <span>CỬA HÀNG PHÁO HOA SỐ 3 — TP. HUẾ</span>
               </h1>
 
               <div className="hero-badge hero-enter hero-enter-left">
@@ -66,7 +66,9 @@ export default function Home() {
               </div>
 
               <p className="hero-intro hero-enter hero-enter-left">
-                Phân phối pháo hoa Bộ Quốc phòng từ Nhà máy Z121 – GAET; tư vấn, thiết kế trình diễn pháo hoa nghệ thuật tại <strong>TP. Huế và TP. Đà Nẵng</strong>.
+                <strong>Cửa hàng Pháo hoa Số 50 – TP. Đà Nẵng:</strong> 405 Lê Văn Hiến, phường Ngũ Hành Sơn.<br />
+                <strong>Cửa hàng Pháo hoa Số 3 – TP. Huế:</strong> CM2-22 Lê Đức Anh, khu đô thị EcoGarden.
+                Hai cửa hàng phân phối pháo hoa chính hãng Bộ Quốc phòng Z121.
               </p>
 
               <div className="hero-actions hero-enter hero-enter-left">
@@ -145,7 +147,7 @@ export default function Home() {
           </div>
 
           {/* 4 THẺ CHỈ SỐ THỰC TẾ (KEY METRICS) */}
-          <div aria-label="Năng lực thực tế SALAGARDEN" className="page-wrap hero-metrics-container">
+          <div aria-label="Năng lực hai cửa hàng pháo hoa" className="page-wrap hero-metrics-container">
             <div className="hero-metrics-grid">
               <div className="metric-card hero-metric-enter">
                 <div className="metric-icon-wrap">
@@ -198,11 +200,11 @@ export default function Home() {
               <h2 className="section-title">Chất lượng tạo nên thương hiệu.<br />Uy tín tạo nên thành công.</h2>
 
               <p className="lead-copy">
-                CÔNG TY TNHH TỔ CHỨC SỰ KIỆN PHÁO HOA BQP SALAGARDEN phân phối pháo hoa Bộ Quốc phòng từ Nhà máy Z121 – GAET, đồng thời tư vấn, thiết kế trình diễn pháo hoa sự kiện.
+                Hệ thống Cửa hàng Pháo hoa Số 50 tại TP. Đà Nẵng và Cửa hàng Pháo hoa Số 3 tại TP. Huế chuyên phân phối pháo hoa chính hãng Bộ Quốc phòng từ Nhà máy Z121 – GAET.
               </p>
 
               <p>
-                Với kho lưu trữ diện tích <strong>{company.warehouseArea}</strong> và phương tiện vận chuyển chuyên dụng, công ty tuân thủ các quy định an toàn phòng cháy chữa cháy, hỗ trợ giao hàng tại TP. Huế, TP. Đà Nẵng và tư vấn phương án trình diễn trên toàn quốc.
+                Với kho lưu trữ diện tích <strong>{company.warehouseArea}</strong> và phương tiện vận chuyển chuyên dụng, hai cửa hàng tuân thủ các quy định an toàn phòng cháy chữa cháy và hỗ trợ giao hàng tại TP. Huế, TP. Đà Nẵng cũng như các địa phương khác theo thỏa thuận.
               </p>
 
               {/* 4 Thẻ Giá Trị Cốt Lõi: UY TÍN, CHẤT LƯỢNG, TẬN TÂM, AN TOÀN */}
@@ -397,7 +399,7 @@ export default function Home() {
               </figure>
               <div className="credibility-documents">
                 <h3>Hồ sơ &amp; dấu ấn thực tế</h3>
-                <p>Những hình ảnh và giấy tờ trong hồ sơ của BQP SALAGARDEN.</p>
+                <p>Hình ảnh và giấy tờ pháp lý của CÔNG TY TNHH TỔ CHỨC SỰ KIỆN PHÁO HOA BQP SALAGARDEN.</p>
                 <a href="/media/info/business-registration.pdf" target="_blank" rel="noreferrer">
                   <span><strong>Đăng ký doanh nghiệp</strong><small>Xem hồ sơ pháp lý của công ty</small></span>
                   <ArrowUpRight aria-hidden="true" size={20} />
@@ -448,28 +450,32 @@ export default function Home() {
             </div>
 
             <div className="warehouse-grid" aria-label="Hình ảnh kho hàng tại Huế và Đà Nẵng">
-              {[1, 2, 3, 5, 6, 7].map((index) => (
-                <figure className="warehouse-shot" key={`hue-${index}`}>
-                  <Image
-                    alt={`Kho hàng cơ sở Huế - hình ${index}`}
-                    fill
-                    sizes="(max-width: 760px) 50vw, 180px"
-                    src={`/media/hue/hue-${index}.jpg`}
-                  />
-                  {index === 1 && <figcaption>Kho Huế</figcaption>}
-                </figure>
-              ))}
-              {[1, 2, 3, 4, 5, 6].map((index) => (
-                <figure className="warehouse-shot" key={`danang-${index}`}>
-                  <Image
-                    alt={`Kho hàng cơ sở Đà Nẵng - hình ${index}`}
-                    fill
-                    sizes="(max-width: 760px) 50vw, 180px"
-                    src={`/media/danang/danang-${index}.jpg`}
-                  />
-                  {index === 1 && <figcaption>Kho Đà Nẵng</figcaption>}
-                </figure>
-              ))}
+              <div className="warehouse-location-column">
+                {[1, 2, 3, 5, 6, 7].map((index) => (
+                  <figure className="warehouse-shot" key={`hue-${index}`}>
+                    <Image
+                      alt={`Kho hàng cơ sở Huế - hình ${index}`}
+                      fill
+                      sizes="(max-width: 760px) 50vw, 180px"
+                      src={`/media/hue/hue-${index}.jpg`}
+                    />
+                    {index === 1 && <figcaption>Kho Huế</figcaption>}
+                  </figure>
+                ))}
+              </div>
+              <div className="warehouse-location-column">
+                {[1, 2, 3, 4, 5, 6].map((index) => (
+                  <figure className="warehouse-shot" key={`danang-${index}`}>
+                    <Image
+                      alt={`Kho hàng cơ sở Đà Nẵng - hình ${index}`}
+                      fill
+                      sizes="(max-width: 760px) 50vw, 180px"
+                      src={`/media/danang/danang-${index}.jpg`}
+                    />
+                    {index === 1 && <figcaption>Kho Đà Nẵng</figcaption>}
+                  </figure>
+                ))}
+              </div>
             </div>
           </div>
         </section>

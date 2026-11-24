@@ -6,11 +6,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "BQP SALAGARDEN | Pháo hoa Z121 & Trình diễn sự kiện",
-    template: "%s | BQP SALAGARDEN",
+    default: "Cửa hàng Pháo hoa Số 50 Đà Nẵng & Số 3 Huế",
+    template: "%s | Cửa hàng Pháo hoa Z121",
   },
   description:
-    "Phân phối pháo hoa Bộ Quốc phòng chính hãng từ Nhà máy Z121, tư vấn trình diễn sự kiện chuyên nghiệp tại Huế, Đà Nẵng và toàn quốc.",
+    "Cửa hàng Pháo hoa Số 50 tại Đà Nẵng và Cửa hàng Pháo hoa Số 3 tại Huế phân phối pháo hoa chính hãng Z121.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
