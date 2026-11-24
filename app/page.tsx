@@ -193,6 +193,9 @@ export default function Home() {
         </section>
 
         {/* SECTION 2: GIỚI THIỆU, GIÁ TRỊ CỐT LÕI & HỒ SƠ PHÁP LÝ (Nền Trắng kem #FFFAF1) */}
+        {/* SECTION 2: Product catalog */}
+        <ProductSection />
+
         <section className="intro-section section-pad" id="gioi-thieu">
           <div className="page-wrap intro-layout px-3 px-md-0">
             {/* Cột trái (7 cột): Triết lý kinh doanh, năng lực kho bãi 500m2, 4 Giá trị cốt lõi */}
@@ -330,8 +333,6 @@ export default function Home() {
         </div>
 
         {/* SECTION 3: DANH MỤC SẢN PHẨM PHÁO HOA Z121 & DỊCH VỤ (Nền Trắng kem #FFFAF1) */}
-        <ProductSection />
-
         {/* SECTION 4: CÁC DỰ ÁN & SỰ KIỆN ĐÃ THỰC HIỆN (Nền Đỏ đô #970019 chữ Trắng kem #FFFAF1) */}
         <EventsSection />
 

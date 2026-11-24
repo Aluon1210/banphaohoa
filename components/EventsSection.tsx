@@ -14,8 +14,17 @@ const eventGalleries: Record<number, string[]> = {
   4: ["/media/info/nonglam-event-2025-2.jpg", "/images/pdf-p11-1.png", "/images/pdf-p9-1.png", "/images/pdf-p9-2.png", "/images/pdf-p9-3.png"],
 };
 
+const mobileEventLabels = [
+  { title: "Chào đón tân sinh viên 2026", venue: "Đại học Nghệ thuật Huế" },
+  { title: "Chào đón tân sinh viên", venue: "Đại học Nông Lâm Huế" },
+  { title: "Chào đón tân sinh viên", venue: "Đại học Khoa học Huế" },
+  { title: "Chào đón tân sinh viên K23", venue: "Đại học Ngoại ngữ Huế" },
+  { title: "Chào đón TSV K49", venue: "THPT Chuyên Khoa học Huế" },
+];
+
 export function EventsSection() {
   const [selectedEventIndex, setSelectedEventIndex] = useState(0);
+  const [expandedEventIndex, setExpandedEventIndex] = useState<number | null>(null);
   const [galleryIndex, setGalleryIndex] = useState(0);
   const [photoDirection, setPhotoDirection] = useState<"left" | "right" | "up">("up");
   const touchStart = useRef<{ x: number; y: number } | null>(null);
@@ -27,6 +36,7 @@ export function EventsSection() {
     setSelectedEventIndex(idx);
     setGalleryIndex(0);
     setPhotoDirection("up");
+    setExpandedEventIndex((current) => (current === idx ? null : idx));
   }
 
   function renderPhotoShowcase(className: string) {
@@ -104,13 +114,16 @@ export function EventsSection() {
             <ol className="event-list">
               {events.map((event, idx) => {
                 const isSelected = selectedEventIndex === idx;
+                const isExpanded = expandedEventIndex === idx;
+                const mobileLabel = mobileEventLabels[idx];
                 return (
                   <li className="event-list-entry" key={`${event.date}-${event.title}`}>
                     <button
-                      className={`event-item-interactive ${isSelected ? "selected" : ""}`}
+                      className={`event-item-interactive ${isSelected ? "selected" : ""} ${isExpanded ? "expanded" : ""}`}
                       onClick={() => selectEvent(idx)}
                       type="button"
                       aria-pressed={isSelected}
+                      aria-expanded={isExpanded}
                     >
                       <div className="event-item-left">
                         <time>
@@ -118,9 +131,14 @@ export function EventsSection() {
                           {event.date}
                         </time>
                         <div className="event-info">
-                          <strong>{event.title}</strong>
+                          <strong>
+                            <span className="event-info-desktop">{event.title}</span>
+                            <span className="event-info-mobile">{mobileLabel?.title ?? event.title}</span>
+                          </strong>
                           <span>
-                            <MapPin aria-hidden="true" size={12} /> {event.venue}
+                            <MapPin aria-hidden="true" size={12} />
+                            <span className="event-info-desktop">{event.venue}</span>
+                            <span className="event-info-mobile">{mobileLabel?.venue ?? event.venue}</span>
                           </span>
                         </div>
                       </div>
@@ -128,7 +146,7 @@ export function EventsSection() {
                         <CheckCircle aria-hidden="true" size={16} />
                       </span>
                     </button>
-                    {isSelected && renderPhotoShowcase("event-photo-showcase-inline")}
+                    {isExpanded && renderPhotoShowcase("event-photo-showcase-inline")}
                   </li>
                 );
               })}

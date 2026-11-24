@@ -31,6 +31,10 @@ export function SiteHeader() {
           ))}
         </nav>
 
+        <Link className="header-purchase" href="/#bao-gia">
+          Đặt mua ngay
+        </Link>
+
         <a
           aria-label={`Gọi ngay Hotline ${company.phone}`}
           className="header-call"
@@ -47,6 +51,10 @@ export function SiteHeader() {
             </span>
           </summary>
           <nav aria-label="Điều hướng trên thiết bị di động">
+            <Link className="mobile-purchase-link" href="/#bao-gia">
+              Đặt mua ngay
+              <ArrowUpRight aria-hidden="true" size={15} />
+            </Link>
             {navigation.map((item) => (
               <Link href={item.href} key={item.label}>
                 {item.label}
