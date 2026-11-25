@@ -6681,9 +6681,9 @@ html[data-reveal-ready="true"] .media-proof-section [data-scroll-reveal].is-reve
   }
 
   .hero-diamond-outer-frame {
-    inset: -12px;
-    width: calc(100% + 24px);
-    height: calc(100% + 24px);
+    inset: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .hero-diamond-outer-frame polygon {

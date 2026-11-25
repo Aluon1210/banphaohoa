@@ -7,11 +7,11 @@ import { events } from "@/data/salagardenData";
 
 // Extended gallery images per event (from PDF scan)
 const eventGalleries: Record<number, string[]> = {
-  0: ["/media/info/arts-university-2026.jpg", "/images/pdf-p10-2.png", "/images/pdf-p10-3.png", "/images/pdf-p10-4.png", "/images/pdf-p10-5.png"],
-  1: ["/media/info/nonglam-event-1.jpg", "/media/info/nonglam-event-2.jpg", "/media/info/nonglam-event-2025.jpg", "/media/info/nonglam-event-2025-2.jpg", "/images/pdf-p9-17.png"],
-  2: ["/media/info/science-event-2026.jpg", "/media/info/science-event-2025.jpg", "/images/pdf-p9-24.png", "/images/pdf-p9-27.png", "/images/pdf-p9-31.png"],
-  3: ["/media/info/foreign-language-certificate.jpg", "/images/pdf-p8-4.png", "/images/pdf-p8-5.png", "/images/pdf-p8-6.png", "/images/pdf-p8-7.png"],
-  4: ["/media/info/nonglam-event-2025-2.jpg", "/images/pdf-p11-1.png", "/images/pdf-p9-1.png", "/images/pdf-p9-2.png", "/images/pdf-p9-3.png"],
+  0: ["/media/info/arts-university-2026.jpg", "/images/pdf-p10-2.png", "/images/pdf-p10-5.png"],
+  1: ["/media/info/nonglam-event-1.jpg", "/media/info/nonglam-event-2.jpg", "/media/info/nonglam-event-2025.jpg"],
+  2: ["/media/info/science-event-2026.jpg", "/media/info/science-event-2025.jpg", "/images/pdf-p9-24.png", "/images/pdf-p9-27.png"],
+  3: ["/media/info/foreign-language-certificate.jpg", "/images/pdf-p8-4.png", "/images/pdf-p8-5.png"],
+  4: ["/media/info/nonglam-event-2025-2.jpg", "/images/pdf-p11-1.png"],
 };
 
 const mobileEventLabels = [
