@@ -1,13 +1,12 @@
 import Image from "next/image";
 import {
-  ArrowDown,
   ArrowRight,
   ArrowUpRight,
   Award,
   BadgeCheck,
   Building2,
   CheckCircle2,
-  ChevronRight,
+  CircleCheck,
   Flame,
   HeartHandshake,
   Mail,
@@ -20,13 +19,13 @@ import {
   Warehouse,
 } from "lucide-react";
 import { EventsSection } from "@/components/EventsSection";
-import { FireworksLayer } from "@/components/FireworksLayer";
 import { FloatingContact } from "@/components/FloatingContact";
 import { HeroMosaicMotion } from "@/components/HeroMosaicMotion";
 import { ProductSection } from "@/components/ProductSection";
 import { QuoteForm } from "@/components/QuoteForm";
 import { SiteFooter, SiteHeader } from "@/components/SiteShell";
-import { company, coreValues, events, stores } from "@/data/salagardenData";
+import { company, coreValues, events, products, stores } from "@/data/salagardenData";
+import { QuoteButton } from "@/components/QuoteButton";
 
 export default function Home() {
   const iconMap: Record<string, React.ReactNode> = {
@@ -40,154 +39,116 @@ export default function Home() {
     <>
       <SiteHeader />
       <main>
-        {/* SECTION 1: STICKY NAVBAR & HERO BANNER (Nền Đỏ đô #970019 + Hiệu ứng Pháo hoa 3D) */}
+        {/* Product-led opening: legal proof remains available below the catalog. */}
         <section className="hero-section" id="trang-chu">
-          <FireworksLayer />
           <div className="hero-pattern-overlay" />
           <HeroMosaicMotion />
 
           <div className="page-wrap hero-layout px-3 px-md-0">
             <div className="hero-copy">
+              <div className="hero-sale-kicker hero-enter hero-enter-left">
+                <BadgeCheck aria-hidden="true" size={18} />
+                <span>PHÁO HOA Z121 CHÍNH HÃNG TẠI HUẾ &amp; ĐÀ NẴNG</span>
+              </div>
+
               <h1 className="hero-enter hero-enter-left">
-                <span>CỬA HÀNG PHÁO HOA SỐ 50 — TP. ĐÀ NẴNG</span>
-                <span>CỬA HÀNG PHÁO HOA SỐ 3 — TP. HUẾ</span>
+                Pháo hoa Z121<br />
+                <span>cho ngày vui rực rỡ.</span>
               </h1>
 
-              <div className="hero-badge hero-enter hero-enter-left">
-                <span className="hero-badge-dot" />
-                <BadgeCheck aria-hidden="true" size={17} />
-                <span>HỒ SƠ NĂNG LỰC • PHÂN PHỐI CHÍNH HÃNG BỘ QUỐC PHÒNG (Z121)</span>
-              </div>
-
-              <div className="hero-motto-wrap hero-enter hero-enter-left">
-                <Sparkles aria-hidden="true" className="motto-spark" size={18} />
-                <span className="motto-text">KIM CHỈ NAM: “{company.motto}”</span>
-                <Sparkles aria-hidden="true" className="motto-spark" size={18} />
-              </div>
-
               <p className="hero-intro hero-enter hero-enter-left">
-                <strong>Cửa hàng Pháo hoa Số 50 – TP. Đà Nẵng:</strong> 405 Lê Văn Hiến, phường Ngũ Hành Sơn.<br />
-                <strong>Cửa hàng Pháo hoa Số 3 – TP. Huế:</strong> CM2-22 Lê Đức Anh, khu đô thị EcoGarden.
-                Hai cửa hàng phân phối pháo hoa chính hãng Bộ Quốc phòng Z121.
+                Chọn pháo hoa chính hãng cho dịp sum họp, khai trương và sự kiện. Ghé cửa hàng tại Huế, Đà Nẵng hoặc liên hệ để được tư vấn.
               </p>
 
               <div className="hero-actions hero-enter hero-enter-left">
                 <a className="button button-gold hero-btn-primary" href="#san-pham">
-                  <span>Xem Danh Mục Pháo Hoa Z121</span>
+                  <span>Xem Sản Phẩm &amp; Giá Bán</span>
                   <ArrowRight aria-hidden="true" size={17} />
                 </a>
                 <a className="button button-outline hero-btn-secondary" href="#bao-gia">
-                  <span>Tư Vấn Trình Diễn Sự Kiện</span>
-                  <ChevronRight aria-hidden="true" size={17} />
+                  <span>Nhận Tư Vấn &amp; Báo Giá</span>
+                  <ArrowUpRight aria-hidden="true" size={17} />
                 </a>
               </div>
 
-              <div className="hero-scroll-wrap hero-enter hero-enter-left">
-                <a className="hero-scroll" href="#gioi-thieu">
-                  <span>Khám phá hồ sơ năng lực & pháp lý</span>
-                  <ArrowDown aria-hidden="true" size={15} />
-                </a>
+              <div className="hero-assurance hero-enter hero-enter-left" aria-label="Thông tin mua hàng">
+                <span><CircleCheck aria-hidden="true" size={16} /> Giá bán niêm yết tại cửa hàng</span>
+                <span><CircleCheck aria-hidden="true" size={16} /> Đối chiếu tem QR Z121</span>
+                <span><CircleCheck aria-hidden="true" size={16} /> Hỗ trợ tại Huế &amp; Đà Nẵng</span>
               </div>
             </div>
 
-              <div className="hero-diamond-mosaic" data-hero-mosaic aria-label="Hình ảnh thực tế kho hàng và sự kiện">
-                <svg className="hero-diamond-outer-frame" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none">
-                  <defs>
-                    <linearGradient id="heroDiamondAmber" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#FFF3B0" />
-                      <stop offset="20%" stopColor="#D9B45B" />
-                      <stop offset="48%" stopColor="#A86216" />
-                      <stop offset="68%" stopColor="#F2C66D" />
-                      <stop offset="86%" stopColor="#FFF1A6" />
-                      <stop offset="100%" stopColor="#C58A2D" />
-                      <animate attributeName="x1" values="-35%; -10%; -35%" dur="5s" repeatCount="indefinite" />
-                      <animate attributeName="x2" values="65%; 110%; 65%" dur="5s" repeatCount="indefinite" />
-                    </linearGradient>
-                  </defs>
-                  <polygon points="50,1.2 98.8,50 50,98.8 1.2,50" />
-                </svg>
-                <figure className="hero-diamond hero-diamond-top">
-                  <Image
-                    alt="Cơ sở kho hàng BQP SALAGARDEN"
-                    fill
-                    sizes="310px"
-                    src="/media/danang/danang-2.jpg"
-                  />
-                </figure>
-                <figure className="hero-diamond hero-diamond-right">
-                  <Image
-                    alt="Sản phẩm và kho hàng tại cơ sở"
-                    fill
-                    sizes="310px"
-                    src="/media/hue/hue-1.jpg"
-                  />
-                </figure>
-                <figure className="hero-diamond hero-diamond-bottom">
-                  <Image
-                    alt="Trình diễn pháo hoa thực tế"
-                    fill
-                    sizes="310px"
-                    src="/media/info/arts-university-2026.jpg"
-                  />
-                </figure>
-                <figure className="hero-diamond hero-diamond-left">
-                  <Image
-                    alt="Sự kiện chào đón tân sinh viên"
-                    fill
-                    sizes="310px"
-                    src="/images/pdf-p9-17.png"
-                  />
-                </figure>
-                <div className="hero-diamond-seal" aria-hidden="true">
-                  <Sparkles size={18} />
-                  <span>HUẾ · ĐÀ NẴNG</span>
-                </div>
+            <div className="hero-diamond-mosaic" data-hero-mosaic aria-label="Hình ảnh thực tế kho hàng và sự kiện">
+              <svg className="hero-diamond-outer-frame" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="heroDiamondAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#FFF3B0" />
+                    <stop offset="20%" stopColor="#D9B45B" />
+                    <stop offset="48%" stopColor="#A86216" />
+                    <stop offset="68%" stopColor="#F2C66D" />
+                    <stop offset="86%" stopColor="#FFF1A6" />
+                    <stop offset="100%" stopColor="#C58A2D" />
+                    <animate attributeName="x1" values="-35%; -10%; -35%" dur="5s" repeatCount="indefinite" />
+                    <animate attributeName="x2" values="65%; 110%; 65%" dur="5s" repeatCount="indefinite" />
+                  </linearGradient>
+                </defs>
+                <polygon points="50,1.2 98.8,50 50,98.8 1.2,50" />
+              </svg>
+              <figure className="hero-diamond hero-diamond-top">
+                <Image alt="Cơ sở kho hàng BQP SALAGARDEN" fill sizes="(max-width: 600px) 160px, 310px" src="/media/danang/danang-2.jpg" />
+              </figure>
+              <figure className="hero-diamond hero-diamond-right">
+                <Image alt="Sản phẩm và kho hàng tại cơ sở" fill sizes="(max-width: 600px) 160px, 310px" src="/media/hue/hue-1.jpg" />
+              </figure>
+              <figure className="hero-diamond hero-diamond-bottom">
+                <Image alt="Trình diễn pháo hoa thực tế" fill sizes="(max-width: 600px) 160px, 310px" src="/media/info/arts-university-2026.jpg" />
+              </figure>
+              <figure className="hero-diamond hero-diamond-left">
+                <Image alt="Sự kiện chào đón tân sinh viên" fill sizes="(max-width: 600px) 160px, 310px" src="/images/pdf-p9-17.png" />
+              </figure>
+              <div className="hero-diamond-seal" aria-hidden="true">
+                <Sparkles size={18} />
+                <span>HUẾ · ĐÀ NẴNG</span>
               </div>
+            </div>
 
           </div>
+        </section>
 
-          {/* 4 THẺ CHỈ SỐ THỰC TẾ (KEY METRICS) */}
-          <div aria-label="Năng lực hai cửa hàng pháo hoa" className="page-wrap hero-metrics-container">
-            <div className="hero-metrics-grid">
-              <div className="metric-card hero-metric-enter">
-                <div className="metric-icon-wrap">
-                  <ShieldCheck size={22} />
-                </div>
-                <div>
-                  <strong>100%</strong>
-                  <span>Pháo Hoa BQP Z121 Chính Hãng</span>
-                </div>
-              </div>
+        <section className="commerce-proof-strip" aria-label="Lý do chọn cửa hàng">
+          <div className="page-wrap commerce-proof-grid">
+            <div><BadgeCheck aria-hidden="true" size={21} /><span><strong>Z121 chính hãng</strong>Đối chiếu nhãn và tem tại điểm bán</span></div>
+            <div><PackageCheck aria-hidden="true" size={21} /><span><strong>Giá bán rõ ràng</strong>Xem giá lẻ trước khi liên hệ</span></div>
+            <div><Building2 aria-hidden="true" size={21} /><span><strong>02 cửa hàng</strong>Huế và Đà Nẵng</span></div>
+            <div><Phone aria-hidden="true" size={21} /><span><strong>Hotline tư vấn</strong>{company.phone}</span></div>
+          </div>
+        </section>
 
-              <div className="metric-card hero-metric-enter">
-                <div className="metric-icon-wrap">
-                  <Warehouse size={22} />
-                </div>
-                <div>
-                  <strong>500 m²</strong>
-                  <span>Hệ Thống Kho Lưu Trữ Đạt Chuẩn</span>
-                </div>
+        <section className="featured-products-strip" aria-labelledby="featured-products-title">
+          <div className="page-wrap">
+            <div className="featured-products-heading">
+              <div>
+                <span className="section-kicker">MẪU ĐƯỢC QUAN TÂM</span>
+                <h2 id="featured-products-title">Chọn nhanh sản phẩm Z121</h2>
               </div>
-
-              <div className="metric-card hero-metric-enter">
-                <div className="metric-icon-wrap">
-                  <Building2 size={22} />
-                </div>
-                <div>
-                  <strong>02 Cơ Sở</strong>
-                  <span>Huế & Đà Nẵng</span>
-                </div>
-              </div>
-
-              <div className="metric-card hero-metric-enter">
-                <div className="metric-icon-wrap">
-                  <PackageCheck size={22} />
-                </div>
-                <div>
-                  <strong>Toàn Quốc</strong>
-                  <span>Phạm Vi Giao Hàng</span>
-                </div>
-              </div>
+              <a href="#san-pham">Xem toàn bộ danh mục <ArrowRight aria-hidden="true" size={16} /></a>
+            </div>
+            <div className="featured-products-grid">
+              {products.filter((product) => product.category === "product").slice(0, 3).map((product) => (
+                <article className="featured-product-card" key={product.slug}>
+                  <a className="featured-product-image" href={`/san-pham/${product.slug}`}>
+                    <Image alt={product.imageAlt} fill sizes="(max-width: 700px) 80vw, 240px" src={product.image} />
+                  </a>
+                  <div className="featured-product-copy">
+                    <span>{product.cardNote}</span>
+                    <h3><a href={`/san-pham/${product.slug}`}>{product.name}</a></h3>
+                    <div className="featured-product-footer">
+                      <strong>{product.price}</strong>
+                      <QuoteButton slug={product.slug}>Báo giá</QuoteButton>
+                    </div>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>

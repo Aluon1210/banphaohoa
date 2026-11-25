@@ -26,10 +26,11 @@ export function ProductSection() {
       <div className="page-wrap">
         <div className="section-heading catalog-heading" data-scroll-reveal="up">
           <div>
-            <h2 className="section-title">Sản Phẩm Z121 Chính Hãng &<br />Dịch Vụ Trình Diễn Nghệ Thuật</h2>
+            <span className="section-kicker">DANH MỤC ĐANG BÁN</span>
+            <h2 className="section-title">Chọn pháo hoa Z121<br />phù hợp với dịp của bạn</h2>
           </div>
           <p>
-            Danh mục gồm pháo hoa dân dụng từ Nhà máy Z121 – GAET và dịch vụ tư vấn, thiết kế trình diễn sự kiện. Vui lòng đối chiếu nhãn và chứng từ tại điểm bán.
+            Giá niêm yết tại cửa hàng. Chọn mẫu để xem thông tin, hoặc gửi yêu cầu để được tư vấn theo nhu cầu và địa điểm nhận hàng.
           </p>
         </div>
 
@@ -51,8 +52,8 @@ export function ProductSection() {
 
         <div className="retail-price-panel" aria-label="Bảng giá lẻ">
           <div className="retail-price-heading">
-            <span>Bảng Giá Lẻ</span>
-            <strong>Giá bán tại cửa hàng</strong>
+            <span>Bảng giá tham khảo</span>
+            <strong>Niêm yết tại cửa hàng Huế &amp; Đà Nẵng</strong>
           </div>
           <div className="retail-price-grid">
             {retailPrices.map((item) => (

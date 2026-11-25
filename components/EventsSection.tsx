@@ -125,11 +125,13 @@ export function EventsSection() {
                       aria-pressed={isSelected}
                       aria-expanded={isExpanded}
                     >
-                      <div className="event-item-left">
-                        <time>
-                          <Calendar aria-hidden="true" size={13} />
-                          {event.date}
-                        </time>
+                      <div className={`event-item-left ${event.date ? "" : "no-date"}`}>
+                        {event.date && (
+                          <time>
+                            <Calendar aria-hidden="true" size={13} />
+                            {event.date}
+                          </time>
+                        )}
                         <div className="event-info">
                           <strong>
                             <span className="event-info-desktop">{event.title}</span>

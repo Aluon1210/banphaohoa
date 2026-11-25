@@ -5,15 +5,22 @@ import { ArrowUpRight, MapPin, Phone, ShieldCheck } from "lucide-react";
 import { company, stores } from "@/data/salagardenData";
 
 const navigation = [
-  { label: "Giới Thiệu", href: "/#gioi-thieu" },
   { label: "Sản Phẩm Z121", href: "/#san-pham" },
-  { label: "Sự Kiện Thực Tế", href: "/#du-an" },
-  { label: "Cửa Hàng & Báo Giá", href: "/#bao-gia" },
+  { label: "Bảng Giá", href: "/#san-pham" },
+  { label: "Trình Diễn Sự Kiện", href: "/#du-an" },
+  { label: "Điểm Bán", href: "/#bao-gia" },
+  { label: "Giới Thiệu", href: "/#gioi-thieu" },
 ];
 
 export function SiteHeader() {
   return (
     <header className="site-header">
+      <div className="commerce-topbar">
+        <div className="page-wrap commerce-topbar-inner">
+          <span><ShieldCheck aria-hidden="true" size={14} /> Pháo hoa Z121 chính hãng - hỗ trợ tại Huế &amp; Đà Nẵng</span>
+          <a href={`tel:${company.phoneLink}`}><Phone aria-hidden="true" size={14} /> Hotline / Zalo: {company.phone}</a>
+        </div>
+      </div>
       <div className="site-header-inner page-wrap">
         <Link aria-label="Cửa hàng Pháo hoa Z121 — Trang chủ" className="brand-lockup" href="/">
           <span aria-hidden="true" className="brand-mark">S</span>
@@ -31,8 +38,8 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <Link className="header-purchase" href="/#bao-gia">
-          Đặt mua ngay
+        <Link className="header-purchase" href="/#san-pham">
+          Xem bảng giá
         </Link>
 
         <a
