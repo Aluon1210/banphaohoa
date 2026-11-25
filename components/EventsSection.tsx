@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { ArrowRight, Calendar, CheckCircle, MapPin, Sparkles } from "lucide-react";
+import { ArrowRight, Calendar, CheckCircle, MapPin, Sparkles, X } from "lucide-react";
 import { events } from "@/data/salagardenData";
 
 // Extended gallery images per event (from PDF scan)
@@ -27,10 +27,28 @@ export function EventsSection() {
   const [expandedEventIndex, setExpandedEventIndex] = useState<number | null>(null);
   const [galleryIndex, setGalleryIndex] = useState(0);
   const [photoDirection, setPhotoDirection] = useState<"left" | "right" | "up">("up");
+  const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string } | null>(null);
   const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const didSwipe = useRef(false);
   const currentEvent = events[selectedEventIndex];
   const gallery = eventGalleries[selectedEventIndex] ?? [currentEvent.image];
   const currentImage = gallery[galleryIndex] ?? gallery[0];
+
+  useEffect(() => {
+    if (!lightboxImage) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setLightboxImage(null);
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [lightboxImage]);
 
   function selectEvent(idx: number) {
     setSelectedEventIndex(idx);
@@ -45,6 +63,22 @@ export function EventsSection() {
         <figure
           className={`event-photo event-photo-enter event-photo-from-${photoDirection}`}
           key={`${selectedEventIndex}-${galleryIndex}`}
+          role="button"
+          tabIndex={0}
+          aria-label={`Xem ảnh lớn: ${currentEvent.title}`}
+          onClick={() => {
+            if (didSwipe.current) {
+              didSwipe.current = false;
+              return;
+            }
+            setLightboxImage({ src: currentImage, alt: currentEvent.title });
+          }}
+          onKeyDown={(event) => {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              setLightboxImage({ src: currentImage, alt: currentEvent.title });
+            }
+          }}
           onTouchStart={(event) => {
             touchStart.current = {
               x: event.changedTouches[0].clientX,
@@ -59,6 +93,7 @@ export function EventsSection() {
 
             if (Math.abs(deltaX) < 40 || Math.abs(deltaX) <= Math.abs(deltaY)) return;
 
+            didSwipe.current = true;
             setGalleryIndex((index) => (index + (deltaX < 0 ? 1 : -1) + gallery.length) % gallery.length);
             setPhotoDirection(deltaX < 0 ? "right" : "left");
           }}
@@ -92,8 +127,9 @@ export function EventsSection() {
   }
 
   return (
-    <section className="events-section section-pad" id="du-an">
-      <div className="page-wrap">
+    <>
+      <section className="events-section section-pad" id="du-an">
+        <div className="page-wrap">
         {/* Section heading */}
         <div className="events-top-row" data-scroll-reveal="up">
           <div>
@@ -183,7 +219,32 @@ export function EventsSection() {
           {/* Right column: Active Event Showcase Photo with gallery nav */}
           {renderPhotoShowcase("event-photo-showcase-desktop")}
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+      {lightboxImage && (
+        <div
+          className="event-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Xem ảnh sự kiện"
+          onClick={() => setLightboxImage(null)}
+        >
+          <button
+            className="event-lightbox-close"
+            type="button"
+            aria-label="Đóng ảnh lớn"
+            onClick={(event) => {
+              event.stopPropagation();
+              setLightboxImage(null);
+            }}
+          >
+            <X aria-hidden="true" size={22} />
+          </button>
+          <div className="event-lightbox-image" onClick={(event) => event.stopPropagation()}>
+            <Image alt={lightboxImage.alt} fill priority sizes="100vw" src={lightboxImage.src} />
+          </div>
+        </div>
+      )}
+    </>
   );
 }

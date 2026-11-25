@@ -273,14 +273,14 @@ export const events = [
     image: "/media/info/arts-university-2026.jpg",
   },
   {
-    date: "",
+    date: "26/09/2026",
     title: "Sự Kiện Chào Đón Tân Sinh Viên Trường Đại Học Nông Lâm",
     venue: "Trường Đại học Nông Lâm – Đại học Huế",
     highlight: "Hiệu ứng chùm tia đa sắc hòa cùng âm nhạc sôi động, tiếp lửa nhiệt huyết tuổi trẻ.",
     image: "/media/info/nonglam-event-1.jpg",
   },
   {
-    date: "",
+    date: "21/03/2026",
     title: "Sự Kiện Chào Đón Tân Sinh Viên Đại Học Khoa Học",
     venue: "Trường Đại học Khoa học – Đại học Huế",
     highlight: "Màn trình diễn pháo hoa rực rỡ chào mừng ngày hội tân sinh viên tại Đại học Khoa học.",
