@@ -413,7 +413,7 @@ export default function Home() {
 
             <div className="warehouse-grid" aria-label="Hình ảnh kho hàng tại Huế và Đà Nẵng">
               <div className="warehouse-location-column">
-                {[1, 2, 3, 5, 6, 7].map((index) => (
+                {[1, 2, 3, 4, 5, 6].map((index) => (
                   <figure className="warehouse-shot" key={`hue-${index}`}>
                     <Image
                       alt={`Kho hàng cơ sở Huế - hình ${index}`}

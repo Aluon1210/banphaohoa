@@ -1,7 +1,10 @@
+export type ProductType = "phun-vien" | "nhap-nhay" | "phun-hoa";
+
 export type CatalogItem = {
   slug: string;
   name: string;
   category: "product" | "service";
+  productType?: ProductType;
   description: string;
   image: string;
   imageAlt: string;
@@ -48,6 +51,7 @@ export const products: CatalogItem[] = [
     slug: "gian-phun-vien-100-vip",
     name: "Giàn Phun Viên 100 VIP",
     category: "product",
+    productType: "phun-vien",
     description:
       "Giàn phun viên 100 ống phóng với hiệu ứng tầm cao rực rỡ, đóng gói trong hộp quà đỏ sang trọng. Phù hợp cho dịp sum họp gia đình, Tết và khai trương.",
     image: "/images/pdf-p7-9.png",
@@ -79,6 +83,7 @@ export const products: CatalogItem[] = [
     slug: "gian-phun-vien-75-vip",
     name: "Giàn Phun Viên 75 VIP",
     category: "product",
+    productType: "phun-vien",
     description:
       "Giàn phun viên 75 ống phóng tạo chùm tia vàng kim và đa sắc, phù hợp cho dịp lễ Tết, tiệc mừng và những khoảnh khắc sum vầy.",
     image: "/images/pdf-p7-4.png",
@@ -110,6 +115,7 @@ export const products: CatalogItem[] = [
     slug: "gian-phun-vien-50-vip",
     name: "Giàn Phun Viên 50 VIP",
     category: "product",
+    productType: "phun-vien",
     description:
       "50 ống phóng với hiệu ứng bung chùm liên tục, tạo không khí hân hoan, ấm áp cho các bữa tiệc gia đình, ngày Tết cổ truyền, liên hoan tân gia và mừng khai trương hồng phát.",
     image: "/images/pdf-p7-8.png",
@@ -137,13 +143,45 @@ export const products: CatalogItem[] = [
     ],
   },
   {
-    slug: "gian-phun-vien-nhap-nhay",
-    name: "Giàn Phun Viên & Nhấp Nháy (ZPYRO)",
+    slug: "gian-phun-vien-zpyro",
+    name: "Giàn Phun Viên ZPYRO",
     category: "product",
+    productType: "phun-vien",
+    description:
+      "Giàn phun viên ZPYRO của Nhà máy Z121. Vui lòng đối chiếu nhãn sản phẩm để biết quy cách và hướng dẫn sử dụng.",
+    image: "/images/pdf-p7-6.png",
+    imageAlt: "Sản phẩm giàn phun viên ZPYRO của Nhà máy Z121",
+    cardNote: "ZPYRO Fountain · Phun Viên",
+    price: "390.000đ",
+    tags: ["ZPYRO", "Phun Viên"],
+    specifications: [
+      { label: "Nhà sản xuất", value: "Nhà máy Z121 – Bộ Quốc phòng (Dòng ZPYRO)" },
+      { label: "Dòng sản phẩm", value: "ZPYRO Fountain – Phun Viên" },
+      { label: "Thời gian cháy", value: "Đối chiếu nhãn sản phẩm Z121" },
+      { label: "Tầm cao phóng", value: "Đối chiếu nhãn sản phẩm Z121" },
+      { label: "Tính pháp lý", value: "Tuân thủ quy định hiện hành và hướng dẫn trên nhãn" },
+      { label: "Hướng dẫn an toàn", value: "Xem thông tin và khoảng cách an toàn trên nhãn" },
+    ],
+    highlights: [
+      "Sản phẩm thuộc dòng ZPYRO của Nhà máy Z121.",
+      "Đối chiếu quy cách, hiệu ứng và hướng dẫn trên nhãn sản phẩm.",
+      "Kiểm tra tem, nhãn và chứng từ tại điểm bán.",
+    ],
+    legalNotes: [
+      "Đối chiếu thông tin sản phẩm, nhãn và chứng từ tại điểm bán trước khi mua.",
+      "Việc mua và sử dụng cần tuân thủ Nghị định 137/2020/NĐ-CP và quy định hiện hành.",
+      "Thông tin doanh nghiệp: MST 0402356447.",
+    ],
+  },
+  {
+    slug: "gian-phun-vien-nhap-nhay",
+    name: "Giàn Nhấp Nháy ZPYRO",
+    category: "product",
+    productType: "nhap-nhay",
     description:
       "Sản phẩm ZPYRO của Nhà máy Z121 với hiệu ứng nhấp nháy lấp lánh, tạo điểm nhấn cho không gian sự kiện.",
-    image: "/images/pdf-p7-6.png",
-    imageAlt: "Sản phẩm giàn phun viên nhấp nháy ZPYRO trong hồ sơ năng lực SALAGARDEN",
+    image: "/images/pdf-p7-7.png",
+    imageAlt: "Sản phẩm giàn phun viên nhấp nháy ZPYRO của Nhà máy Z121",
     cardNote: "ZPYRO · Hiệu Ứng Nhấp Nháy Ánh Sao",
     price: "390.000đ",
     tags: ["ZPYRO", "Hiệu Ứng Nhấp Nháy"],
@@ -170,6 +208,7 @@ export const products: CatalogItem[] = [
     slug: "gian-phun-hoa",
     name: "Giàn Phun Hoa (ZPYRO Fountain)",
     category: "product",
+    productType: "phun-hoa",
     description:
       "Giàn phun hoa ZPYRO Fountain tạo tia sáng bạc và vàng ở tầm gần, phù hợp làm điểm nhấn cho sân khấu, tiệc cưới và sự kiện.",
     image: "/images/pdf-p7-5.png",

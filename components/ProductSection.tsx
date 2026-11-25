@@ -4,22 +4,45 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Flame } from "lucide-react";
-import { products, retailPrices, type CatalogItem } from "@/data/salagardenData";
+import {
+  products,
+  retailPrices,
+  type CatalogItem,
+  type ProductType,
+} from "@/data/salagardenData";
 import { QuoteButton } from "./QuoteButton";
 
-const categories = [
-  { id: "all", label: "Tất Cả Danh Mục (6)" },
-  { id: "product", label: "Pháo Hoa Z121 BQP (5)" },
-  { id: "service", label: "Dịch Vụ Trình Diễn (1)" },
+type ProductFilter = "all" | ProductType | "service";
+
+const categories: { id: ProductFilter; label: string }[] = [
+  { id: "all", label: `Tất Cả Danh Mục (${products.length})` },
+  {
+    id: "phun-vien",
+    label: `Phun Viên (${products.filter((product) => product.productType === "phun-vien").length})`,
+  },
+  {
+    id: "nhap-nhay",
+    label: `Nhấp Nháy (${products.filter((product) => product.productType === "nhap-nhay").length})`,
+  },
+  {
+    id: "phun-hoa",
+    label: `Phun Hoa (${products.filter((product) => product.productType === "phun-hoa").length})`,
+  },
+  {
+    id: "service",
+    label: `Dịch Vụ Trình Diễn (${products.filter((product) => product.category === "service").length})`,
+  },
 ];
 
 export function ProductSection() {
-  const [activeCategory, setActiveCategory] = useState("all");
+  const [activeCategory, setActiveCategory] = useState<ProductFilter>("all");
 
   const filteredProducts =
     activeCategory === "all"
       ? products
-      : products.filter((p) => p.category === activeCategory);
+      : activeCategory === "service"
+        ? products.filter((product) => product.category === "service")
+        : products.filter((product) => product.productType === activeCategory);
 
   return (
     <section className="catalog-section section-pad" id="san-pham">
@@ -40,6 +63,7 @@ export function ProductSection() {
             {categories.map((cat) => (
               <button
                 className={`category-filter-btn ${activeCategory === cat.id ? "active" : ""}`}
+                aria-pressed={activeCategory === cat.id}
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
                 type="button"

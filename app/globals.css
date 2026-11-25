@@ -1866,8 +1866,8 @@ a {
 }
 
 .event-list {
-  margin: -10px;
-  padding: 10px;
+  margin: -18px;
+  padding: 18px;
   list-style: none;
   display: grid;
   gap: 8px;
@@ -1898,10 +1898,8 @@ a {
 }
 
 .event-item-interactive:hover {
-  z-index: 2;
   background: rgba(217, 180, 91, 0.12);
   border-color: rgba(217, 180, 91, 0.6);
-  transform: scale(1.015);
 }
 
 .event-item-interactive.selected {
@@ -1926,6 +1924,14 @@ a {
 }
 
 .event-info-mobile {
+  display: none;
+}
+
+.event-info .event-info-desktop {
+  display: inline-flex;
+}
+
+.event-info .event-info-mobile {
   display: none;
 }
 
@@ -3921,6 +3927,8 @@ a {
 .event-item-left {
   display: grid;
   grid-template-columns: 115px 1fr;
+  flex: 1;
+  min-width: 0;
   align-items: center;
   gap: 14px;
 }
